@@ -1,0 +1,43 @@
+.notelist-container {
+  @apply w-full h-full p-6 max-w-sm mx-auto my-10 bg-white rounded-xl shadow-md flex items-center space-x-4;
+
+  .wrapper {
+    @apply w-full;
+
+    h1 {
+      @apply text-center text-2xl font-medium text-black my-1;
+    }
+
+    p {
+      @apply text-sm text-gray-400 text-center pb-2;
+    }
+  }
+
+  ul {
+    @apply pt-3;
+
+    li {
+      @apply flex justify-between p-2;
+    }
+
+    p {
+      @apply text-gray-500;
+    }
+  }
+
+  hr {
+    @apply py-2;
+  }
+
+  form {
+    @apply my-2 flex justify-between;
+
+    input {
+      @apply border rounded px-2 py-1 outline-none;
+    }
+
+    button {
+      @apply rounded bg-gradient-to-r from-red-200 to-yellow-200 text-white ml-2 px-2 py-1 hover:shadow-md transition;
+    }
+  }
+}

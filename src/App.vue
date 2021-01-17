@@ -1,13 +1,16 @@
 <template>
-  <NoteList />
+  <Navbar />
+  <div class="w-full flex">
+    <router-view> </router-view>
+  </div>
 </template>
 
 <script>
-import NoteList from "./components/NoteList.vue";
+import Navbar from "./components/Navbar";
 
 export default {
   components: {
-    NoteList,
+    Navbar,
   },
 };
 </script>
