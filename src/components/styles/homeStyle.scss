@@ -1,8 +1,16 @@
 .home-container {
-  @apply m-auto w-5/6 text-center;
+  @apply m-auto w-5/6 h-full text-center;
 
   h1 {
-    @apply text-2xl font-bold text-gray-700 my-8 mx-auto;
+    @apply text-2xl font-bold text-gray-700 mt-8 mb-4 mx-auto;
+  }
+
+  .intro {
+    @apply mb-2 text-gray-600;
+
+    a {
+      @apply text-red-500 border-b border-red-500;
+    }
   }
 
   .project-section {

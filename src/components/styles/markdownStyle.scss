@@ -1,0 +1,27 @@
+.mark-container {
+  @apply m-auto;
+
+  h1 {
+    @apply text-2xl my-4 text-center text-gray-700 font-bold;
+  }
+
+  .wrapper {
+    @apply flex w-10/12 m-auto h-96;
+
+    article {
+      @apply w-1/2 shadow-sm border border-gray-100 rounded text-gray-700 p-2;
+
+      &.left {
+        @apply bg-white rounded-r-none;
+      }
+
+      &.right {
+        @apply bg-red-50 rounded-l-none;
+      }
+
+      textarea {
+        @apply w-full h-full outline-none;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.login-modal-container {
+  @apply w-full;
+
+  .overlay {
+    @apply z-20 h-screen w-screen bg-gray-500 fixed top-0 opacity-50;
+  }
+
+  .panel {
+    @apply absolute inset-0;
+
+    .wrapper {
+      @apply flex h-full;
+
+      .white-board {
+        @apply z-30 m-auto bg-white p-2 rounded shadow w-10/12 md:w-1/3;
+
+        h1 {
+          @apply text-2xl text-center;
+        }
+
+        form {
+          @apply p-2 my-2;
+
+          input {
+            @apply rounded shadow p-2 w-full;
+          }
+
+          button {
+            @apply w-full rounded shadow-md bg-gradient-to-r from-blue-300 to-green-300 text-white p-2;
+
+            .spin-loading {
+              @apply animate-spin h-5 w-5 mr-3;
+            }
+          }
+        }
+      }
+    }
+  }
+}
