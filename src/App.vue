@@ -3,8 +3,10 @@
   <div class="w-full flex flex-wrap">
     <router-view> </router-view>
   </div>
-  <LoginModal />
-  <Loading />
+  <teleport to="body">
+    <LoginModal />
+    <Loading />
+  </teleport>
 </template>
 
 <script>

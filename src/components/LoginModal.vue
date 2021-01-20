@@ -6,6 +6,9 @@
         <div class="white-board">
           <div class="p-2 border">
             <h1>Login</h1>
+
+            <GoogleLogin @close-login-from-google="closeModal" />
+
             <!-- <p v-if="isLoginNotice" class="text-red-700">
               Input should't be valid.
             </p> -->
@@ -56,13 +59,14 @@
 <script>
 import "../components/styles/loginModal.scss";
 import "../components/styles/spinner.scss";
+import GoogleLogin from "../components/Login/GoogleLogin";
 import firebase from "../utilities/firebase";
 export default {
+  components: { GoogleLogin },
   data() {
     return {
-      userEmail: "",
-      userPassword: "",
-      isLoading: false,
+      userEmail: "user@test.com",
+      userPassword: "123456",
     };
   },
   computed: {
