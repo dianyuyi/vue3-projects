@@ -42,6 +42,11 @@ export default {
           description: "Use transition.",
           link: "/slider",
         },
+        {
+          name: "Calculator",
+          description: "Simple calculator.",
+          link: "/calculator",
+        },
       ],
     };
   },

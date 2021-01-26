@@ -1,0 +1,40 @@
+.calculate-container {
+  @apply flex w-full flex-col text-gray-800;
+
+  h1 {
+    @apply mt-6 text-2xl text-center;
+  }
+
+  .wrapper {
+    @apply mx-auto my-6 p-6 border-yellow-300 rounded-lg shadow-xl;
+
+    border-width: 12px;
+
+    .result {
+      @apply text-3xl text-right mt-4 pb-2 h-10 w-44 overflow-x-scroll border-b border-gray-200;
+
+      max-width: 12rem;
+      // direction: rtl;
+    }
+
+    .grid-table {
+      @apply grid gap-1;
+
+      &.col-3 {
+        @apply grid-cols-3;
+      }
+
+      &.col-1 {
+        @apply ml-1 grid-cols-1;
+      }
+
+      .grid-btn {
+        @apply p-2 w-10 h-10 border rounded shadow;
+
+        &.zero {
+          @apply col-span-2 w-auto;
+        }
+      }
+    }
+  }
+}
