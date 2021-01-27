@@ -47,6 +47,11 @@ export default {
           description: "Simple calculator.",
           link: "/calculator",
         },
+        {
+          name: "Reuseable Modal",
+          description: "Reuseable modal.",
+          link: "/reuseable-modal",
+        },
       ],
     };
   },

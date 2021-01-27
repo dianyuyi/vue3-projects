@@ -33,15 +33,22 @@
       </div>
     </div>
   </section>
+  <BackHomeBtn />
 </template>
 
 <script>
 import "../components/styles/calculateStyle.scss";
+import BackHomeBtn from "../components/BackHomeBtn";
+import useWindowEvent from "../utilities/composition/useWindowEvent";
 import { ref } from "vue";
 export default {
+  components: {
+    BackHomeBtn,
+  },
   setup() {
     const defaultNum = ref("0");
     const operations = ["+", "-", "*", "/"];
+    const numKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     const currentNum = ref("");
     const prevNum = ref("");
     const selectedOperation = ref("");
@@ -53,7 +60,7 @@ export default {
         applyOperation(value);
       } else if (value === "C") {
         clearNum();
-      } else {
+      } else if (numKeys.includes(value)) {
         apprendNumber(value);
       }
     };
@@ -117,6 +124,10 @@ export default {
         currentNum.value = currentNum.value + value;
       }
     };
+    const handleKeydown = (e) => {
+      pressed(e.key);
+    };
+    useWindowEvent("keyDown", handleKeydown);
 
     return {
       defaultNum,
