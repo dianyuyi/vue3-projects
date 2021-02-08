@@ -33,8 +33,8 @@
               </div>
               <div>
                 <button type="submit">
-                  <span v-if="!isWebLoading">Login</span>
-                  <span v-else>
+                  <span>Login</span>
+                  <!-- <span>
                     <svg class="spinner" viewBox="0 0 50 50">
                       <circle
                         class="path"
@@ -45,7 +45,7 @@
                         stroke-width="5"
                       ></circle>
                     </svg>
-                  </span>
+                  </span> -->
                 </button>
               </div>
             </form>
@@ -67,6 +67,8 @@ export default {
     return {
       userEmail: "user@test.com",
       userPassword: "123456",
+      delaySetTimeout: null,
+      delaySec: 1.2,
     };
   },
   computed: {
@@ -86,15 +88,22 @@ export default {
         // this.$store.commit("setLoginNotice", true);
       } else {
         // this.$store.commit("setLoginNotice", false);
-        this.$store.commit("setWebLoading", false);
+        this.$store.commit("setWebLoading", true);
         firebase
           .auth()
           .signInWithEmailAndPassword(this.userEmail, this.userPassword)
           .then(() => {
             this.userEmail = "";
             this.userPassword = "";
-            this.closeModal();
-            this.$store.commit("setWebLoading", false);
+            if (this.delaySetTimeout) {
+              clearTimeout(this.delaySetTimeout);
+            } else {
+              this.delaySetTimeout = setTimeout(() => {
+                this.$store.commit("setWebLoading", false);
+                this.closeModal();
+                console.log("delay");
+              }, this.delaySec * 1000);
+            }
           })
           .catch((error) => {
             alert(error.message);

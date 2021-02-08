@@ -7,6 +7,7 @@ import Markdown from "./pages/Markdown";
 import Slider from "./pages/Slider";
 import Calculator from "./pages/Calculator";
 import ReuseableModal from "./pages/ReuseableModal";
+import Chats from "./pages/Chats";
 
 const routes = [
   { path: "/", component: Home },
@@ -16,6 +17,7 @@ const routes = [
   { path: "/slider", component: Slider },
   { path: "/calculator", component: Calculator },
   { path: "/reuseable-modal", component: ReuseableModal },
+  { path: "/chats", component: Chats, meta: { middleware: "auth" } },
 ];
 
 const router = createRouter({
@@ -24,10 +26,13 @@ const router = createRouter({
 });
 
 router.beforeEach((to, _, next) => {
+  // _ = no need to use "from"
+
   if (to.meta.middleware) {
     const middleware = require(`./middleware/${to.meta.middleware}`);
     if (middleware) {
       middleware.default(next, store);
+      // as a module, middleware "export defalt" so call this
     } else {
       next();
     }

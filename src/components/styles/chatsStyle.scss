@@ -1,0 +1,77 @@
+.chat-container {
+  @apply flex w-full;
+
+  .wrapper {
+    @apply m-auto mt-8 w-10/12 text-gray-700;
+
+    h1 {
+      @apply text-center text-2xl my-2 border-b-2 border-gray-50;
+    }
+
+    .test-notice {
+      @apply bg-gray-100 text-center text-gray-400 my-4 py-1 rounded-full;
+    }
+
+    .chat-outerbox {
+      @apply rounded-md w-full shadow-inner bg-gradient-to-t from-yellow-400 to-red-200;
+
+      .chat-innerbox {
+        @apply h-72 py-2 px-4 overflow-y-scroll;
+
+        .chat-line {
+          @apply w-auto mt-2 mb-4;
+
+          .chat-msg {
+            @apply py-1 px-2 rounded-lg relative;
+
+            &.right {
+              background: #ffe7bf;
+
+              &::after {
+                content: "";
+                position: absolute;
+                right: 2px;
+                bottom: -8px;
+                border-left: 4px solid transparent;
+                border-right: 8px solid #ffe7bf;
+                border-bottom: 8px solid transparent;
+                border-top: 4px solid #ffe7bf;
+              }
+            }
+
+            &.left {
+              background: #f7f0ed;
+
+              &::after {
+                content: "";
+                position: absolute;
+                left: 2px;
+                bottom: -8px;
+                border-left: 8px solid #f7f0ed;
+                border-right: 4px solid transparent;
+                border-bottom: 8px solid transparent;
+                border-top: 4px solid #f7f0ed;
+              }
+            }
+          }
+        }
+      }
+
+      .chat-submitbox {
+        @apply h-full mt-2 flex shadow border-t-4 rounded-b-md border-white;
+
+        input {
+          @apply w-full p-1 border rounded-bl-md focus:outline-none;
+        }
+
+        .chat-submit-btn {
+          @apply bg-red-400 rounded-br-md transition hover:bg-red-500;
+
+          button {
+            @apply py-2 px-4 text-white focus:outline-none;
+          }
+        }
+      }
+    }
+  }
+}
